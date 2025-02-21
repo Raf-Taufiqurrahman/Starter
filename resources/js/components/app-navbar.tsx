@@ -25,6 +25,17 @@ export default function AppNavbar() {
                 }
             ],
         },
+        {
+            name: 'Manajemen Pengguna',
+            isActive: url.startsWith('/apps/permissions'),
+            subItems: [
+                {
+                    name: 'Hak Akses',
+                    isActive: url.startsWith('/apps/permissions'),
+                    href: route('apps.permissions.index')
+                }
+            ],
+        }
     ];
     return (
         <div className="flex items-center gap-2 px-4 w-full">
@@ -37,7 +48,7 @@ export default function AppNavbar() {
                             <React.Fragment key={index}>
                                 <BreadcrumbItem>
                                     <BreadcrumbLink asChild>
-                                        <Link href="#">{item.name}</Link>
+                                        <div>{item.name}</div>
                                     </BreadcrumbLink>
                                 </BreadcrumbItem>
                                 <BreadcrumbSeparator/>
@@ -46,7 +57,7 @@ export default function AppNavbar() {
                                     .map((subItem, subIndex) => (
                                         <BreadcrumbItem key={subIndex}>
                                             <BreadcrumbLink asChild>
-                                                <Link href={subItem.href}>{subItem.name}</Link>
+                                                <div>{subItem.name}</div>
                                             </BreadcrumbLink>
                                         </BreadcrumbItem>
                                     ))

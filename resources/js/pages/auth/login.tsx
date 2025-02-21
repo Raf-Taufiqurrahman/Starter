@@ -45,7 +45,7 @@ export default function Login() {
                         <Input
                             id="login"
                             type="text"
-                            placeholder="masukan email / username anda"
+                            placeholder="Masukan email / username anda"
                             autoComplete="off"
                             value={data.login}
                             onChange={(e) => setData('login', e.target.value)}
@@ -59,7 +59,7 @@ export default function Login() {
                         <Input
                             id="password"
                             type="password"
-                            placeholder='masukan password anda'
+                            placeholder='Masukan password anda'
                             autoComplete='off'
                             value={data.password}
                             onChange={(e) => setData('password', e.target.value)}

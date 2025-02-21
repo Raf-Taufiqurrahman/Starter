@@ -11,6 +11,7 @@ import { SideProfile } from "./side-menu/side-profile"
 import Logo from '@/assets/logo.svg'
 import { SideStat } from "./side-menu/side-stat"
 import { usePage } from "@inertiajs/react"
+import { SideUserManagement } from "./side-menu/side-user-management"
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
@@ -27,6 +28,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarHeader>
         <SidebarContent className="dark:bg-gray-950 scrollbar-hide bg-white">
             <SideStat url={url} setOpenMobile={setOpenMobile}/>
+            <SideUserManagement url={url} setOpenMobile={setOpenMobile}/>
         </SidebarContent>
         <SidebarFooter className="border-t bg-white dark:bg-gray-950">
             <SideProfile/>

@@ -14,7 +14,7 @@ export default function AuthLayout({children} : {children: React.ReactNode}) {
                             <img
                                 src={Logo}
                                 alt="Image"
-                                className="h-full w-full object-cover bg-white dark:bg-gray-950"
+                                className="h-full w-full object-cover bg-white dark:bg-gray-800"
                             />
                         </div>
                     </a>

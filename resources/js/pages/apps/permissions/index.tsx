@@ -165,14 +165,16 @@ export default function Index() {
                                         </TableCell>
                                         <TableCell>{permission.name}</TableCell>
                                         <TableCell>
-                                            {(hasAnyPermission(['permissions-update']) || hasAnyPermission(['permissions-delete'])) &&
-                                                <ActionButton
-                                                    permissionPrefix='permissions'
-                                                    isModal={true}
-                                                    actionEdit={() => handleModalUpdate(permission)}
-                                                    actionDelete={() => handleModalDelete(permission)}
-                                                />
-                                            }
+                                            <div className='flex items-center justify-center'>
+                                                {(hasAnyPermission(['permissions-update']) || hasAnyPermission(['permissions-delete'])) &&
+                                                    <ActionButton
+                                                        permissionPrefix='permissions'
+                                                        isModal={true}
+                                                        actionEdit={() => handleModalUpdate(permission)}
+                                                        actionDelete={() => handleModalDelete(permission)}
+                                                    />
+                                                }
+                                            </div>
                                         </TableCell>
                                     </TableRow>
                                 ))

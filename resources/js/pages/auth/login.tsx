@@ -55,11 +55,11 @@ export default function Login() {
                         )}
                     </div>
                     <div className="grid gap-2">
-                        <Label htmlFor="password">Password</Label>
+                        <Label htmlFor="password">Kata Sandi</Label>
                         <Input
                             id="password"
                             type="password"
-                            placeholder='Masukan password anda'
+                            placeholder='Masukan kata sandi anda'
                             autoComplete='off'
                             value={data.password}
                             onChange={(e) => setData('password', e.target.value)}

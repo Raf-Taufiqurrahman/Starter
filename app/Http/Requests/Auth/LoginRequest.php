@@ -32,6 +32,16 @@ class LoginRequest extends FormRequest
         ];
     }
 
+    public function messages() : array
+    {
+        return [
+            'login.required' => 'Kolom username / email tidak boleh kosong',
+            'login.string' => 'Kolom username / email harus berupa string',
+            'password.required' => 'Kolom kata sandi tidak boleh kosong',
+            'password.string' => 'Kolom kata sandi harus berupa string', 
+        ];
+    }
+
     /**
      * Attempt to authenticate the request's credentials.
      *
@@ -54,17 +64,19 @@ public function authenticate(): void
         RateLimiter::hit($this->throttleKey());
 
         throw ValidationException::withMessages([
-            'login' => trans('auth.failed'),
+            'login' => 'Mohon maaf, akun anda tidak dapat kami temukan',
         ]);
     }
 
     // inactive user
     $user = Auth::user();
-    if (!$user->is_active) {
+    if ($user->is_active != 1) {
+        Auth::logout();
+
         RateLimiter::hit($this->throttleKey());
 
         throw ValidationException::withMessages([
-            'login' => trans('auth.inactive'),
+            'login' => 'Mohon maaf, akun anda telah dinonaktifkan'
         ]);
     }
 

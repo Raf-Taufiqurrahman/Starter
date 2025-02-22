@@ -96,13 +96,15 @@ export default function Index() {
                                             }
                                         </TableCell>
                                         <TableCell>
-                                            {(hasAnyPermission(['roles-update']) || hasAnyPermission(['roles-delete']) &&
-                                                <ActionButton
-                                                    permissionPrefix='roles'
-                                                    actionEditHref={route('apps.roles.edit', role.id)}
-                                                    actionDelete={() => handleModalDelete(role)}
-                                                />
-                                            )}
+                                            <div className='flex items-center justify-center'>
+                                                {(hasAnyPermission(['roles-update']) || hasAnyPermission(['roles-delete'])) &&
+                                                    <ActionButton
+                                                        permissionPrefix='roles'
+                                                        actionEditHref={route('apps.roles.edit', role.id)}
+                                                        actionDelete={() => handleModalDelete(role)}
+                                                    />
+                                                }
+                                            </div>
                                         </TableCell>
                                     </TableRow>
                                 ))

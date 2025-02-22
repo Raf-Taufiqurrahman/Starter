@@ -112,15 +112,17 @@ export default function Index() {
                                             }
                                         </TableCell>
                                         <TableCell>
-                                            {(hasAnyPermission(['users-update']) || hasAnyPermission(['users-delete']) || hasAnyPermission(['users-show']) &&
-                                                <ActionButton
-                                                    permissionPrefix='users'
-                                                    withDetail={true}
-                                                    actionDetailHref={route('apps.users.show', user.id)}
-                                                    actionEditHref={route('apps.users.edit', user.id)}
-                                                    actionDelete={() => handleModalDelete(user)}
-                                                />
-                                            )}
+                                            <div className='flex items-center justify-center'>
+                                                {(hasAnyPermission(['users-update']) || hasAnyPermission(['users-delete']) || hasAnyPermission(['users-show'])) &&
+                                                    <ActionButton
+                                                        permissionPrefix='users'
+                                                        withDetail={true}
+                                                        actionDetailHref={route('apps.users.show', user.id)}
+                                                        actionEditHref={route('apps.users.edit', user.id)}
+                                                        actionDelete={() => handleModalDelete(user)}
+                                                    />
+                                                }
+                                            </div>
                                         </TableCell>
                                     </TableRow>
                                 ))

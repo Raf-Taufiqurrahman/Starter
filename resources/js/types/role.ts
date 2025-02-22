@@ -1,7 +1,7 @@
 import { Permission } from "./permission";
 
 export interface Role {
-    id: string | number;
+    id: string;
     name: string;
     permissions: Permission[];
 }

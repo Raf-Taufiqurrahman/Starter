@@ -2,7 +2,7 @@ import AppLayout from '@/layouts/app-layout'
 import React from 'react'
 import { Header } from '@/components/header'
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
-import { TableFilter, TableCard, Table, TableHead, TableHeader, TableRow, TableBody, TableCell } from '@/components/ui/table'
+import { TableFilter, TableCard, Table, TableHead, TableHeader, TableRow, TableBody, TableCell, TableEmpty } from '@/components/ui/table'
 import { PageProps } from '@/types'
 import { Permission, PermissionLink } from '@/types/permission'
 import { Label } from '@/components/ui/label'
@@ -102,7 +102,7 @@ export default function Index() {
                     })}
                 >
                     {hasAnyPermission(['permissions-create']) &&
-                        <DialogTrigger className="px-4 py-2 flex items-center gap-2 rounded-lg text-sm font-semibold text-gray-700 border hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-900 focus:outline-none">
+                        <DialogTrigger className="px-4 py-2 flex items-center gap-2 rounded-lg text-sm font-semibold text-gray-700 border hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-900 dark:border-gray-800 focus:outline-none">
                             <PlusCircle className="size-4" /> <span className="hidden sm:inline-flex">Tambah Hak Akses</span>
                         </DialogTrigger>
                     }
@@ -117,7 +117,7 @@ export default function Index() {
                             <div className="p-4">
                                 <div className="mb-4 flex flex-col gap-2">
                                     <Label>Nama Hak Akses</Label>
-                                    <Input type="text" name="name" value={data.name} onChange={(e) => setData('name', e.target.value)}  placeholder="Masukkan nama hak akses" autoFocus/>
+                                    <Input type="text" name="name" value={data.name} onChange={(e) => setData('name', e.target.value)}  placeholder="Masukkan nama hak akses"/>
                                     <p className="text-red-500 text-xs">{errors.name}</p>
                                 </div>
                                 <div className="flex items-center gap-2">
@@ -154,9 +154,7 @@ export default function Index() {
                         </TableHeader>
                         <TableBody>
                             {permissions.data.length === 0 ? (
-                                    <TableRow>
-                                        <TableCell colSpan={3} align="center">Data hak akses tidak ditemukan</TableCell>
-                                    </TableRow>
+                                    <TableEmpty colSpan={3} message='data hak akses'/>
                             ) : (
                                 permissions.data.map((permission, index) => (
                                     <TableRow key={index}>

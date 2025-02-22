@@ -28,6 +28,16 @@ export function SideUserManagement({ url, setOpenMobile } : { url: string, setOp
                             </SidebarMenuButton>
                         </SidebarMenuItem>
                     }
+                    {hasAnyPermission(['roles-data']) &&
+                        <SidebarMenuItem>
+                            <SidebarMenuButton asChild tooltip={"Akses Group"} isActive={url.startsWith('/apps/roles') && true}>
+                                <Link href={route('apps.roles.index')} onClick={() => setOpenMobile(false)}>
+                                    <UserCog/>
+                                    <span>Akses Group</span>
+                                </Link>
+                            </SidebarMenuButton>
+                        </SidebarMenuItem>
+                    }
                 </SidebarMenu>
             </SidebarGroupContent>
         </SidebarGroup>

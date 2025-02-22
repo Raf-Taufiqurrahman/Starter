@@ -11,10 +11,10 @@ export default function AppLayout({ children } : { children: React.ReactNode }) 
         <SidebarProvider>
             <AppSidebar/>
              <main className="w-full overflow-x-hidden">
-                <div className="flex h-14 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-  [[data-collapsible=icon]]/sidebar-wrapper:h-12 border-b bg-white dark:bg-background">
+                <div className="flex h-14 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-  [[data-collapsible=icon]]/sidebar-wrapper:h-12 border-b bg-white dark:bg-background fixed w-full top-0">
                     <AppNavbar/>
                 </div>
-                <div>{children}</div>
+                <div className='mt-[50px]'>{children}</div>
                 <Toaster />
             </main>
         </SidebarProvider>

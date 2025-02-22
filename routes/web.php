@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Apps\DashboardController;
 use App\Http\Controllers\Apps\PermissionController;
+use App\Http\Controllers\Apps\RoleController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,8 @@ Route::group(['prefix' => 'apps', 'as' => 'apps.', 'middleware' => ['auth']], fu
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
     // permission route
     Route::resource('/permissions', PermissionController::class)->only(['index', 'store', 'update', 'destroy']);
+    // role route
+    Route::resource('/roles', RoleController::class)->except('show');
 });
 
 require __DIR__.'/auth.php';

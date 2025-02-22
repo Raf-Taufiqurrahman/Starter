@@ -27,12 +27,17 @@ export default function AppNavbar() {
         },
         {
             name: 'Manajemen Pengguna',
-            isActive: url.startsWith('/apps/permissions'),
+            isActive: url.startsWith('/apps/permissions') || url.startsWith('/apps/roles'),
             subItems: [
                 {
                     name: 'Hak Akses',
                     isActive: url.startsWith('/apps/permissions'),
                     href: route('apps.permissions.index')
+                },
+                {
+                    name: 'Akses Group',
+                    isActive: url.startsWith('/apps/roles'),
+                    href: route('apps.roles.index')
                 }
             ],
         }

@@ -38,12 +38,12 @@ class RoleRequest extends FormRequest
     public function messages(): array 
     {
         return [
-            'name.required' => 'Kolom nama akses group tidak boleh kosong.',
-            'name.string' => 'Kolom nama akses group harus berupa string.',
-            'name.min' => 'Kolom nama akses group minimal 3 karakter.',
-            'name.max' => 'Kolom nama akses group maksimal 255 karakter.',
-            'name.unique' => 'Kolom nama akses group sudah ada, silahkan gunakan nama lainnya.',
-            'selectedPermssions.required' => 'Kolom hak akses tidak boleh kosong.',
+            'name.required' => 'Kolom nama akses group tidak boleh kosong',
+            'name.string' => 'Kolom nama akses group harus berupa string',
+            'name.min' => 'Kolom nama akses group minimal 3 karakter',
+            'name.max' => 'Kolom nama akses group maksimal 255 karakter',
+            'name.unique' => 'Kolom nama akses group sudah ada, silahkan gunakan nama lainnya',
+            'selectedPermssions.required' => 'Kolom hak akses tidak boleh kosong',
             'selectedPermissions.array' => 'Kolom hak akses harus berupa array',
             'selectedPermssions.min' => 'Kolom hak akses minimal 1 data',
         ];

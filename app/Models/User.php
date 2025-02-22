@@ -25,6 +25,7 @@ class User extends Authenticatable
         'email',
         'password',
         'avatar',
+        'is_active',
     ];
 
     /**
@@ -57,6 +58,12 @@ class User extends Authenticatable
         );
     }
 
+    protected function isActive(): Attribute
+    {
+          return Attribute::make(
+            get: fn (string $value) => $value == 1 ? true : false,
+        );
+    }
 
     public function getUserPermissions()
     {

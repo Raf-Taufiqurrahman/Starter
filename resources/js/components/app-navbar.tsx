@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/breadcrumb"
 import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
-import { usePage, Link } from '@inertiajs/react'
+import { usePage } from '@inertiajs/react'
 
 export default function AppNavbar() {
     const { url } = usePage();
@@ -27,7 +27,7 @@ export default function AppNavbar() {
         },
         {
             name: 'Manajemen Pengguna',
-            isActive: url.startsWith('/apps/permissions') || url.startsWith('/apps/roles'),
+            isActive: url.startsWith('/apps/permissions') || url.startsWith('/apps/roles') || url.startsWith('/apps/users'),
             subItems: [
                 {
                     name: 'Hak Akses',
@@ -38,6 +38,11 @@ export default function AppNavbar() {
                     name: 'Akses Group',
                     isActive: url.startsWith('/apps/roles'),
                     href: route('apps.roles.index')
+                },
+                {
+                    name: 'Pengguna',
+                    isActive: url.startsWith('/apps/users'),
+                    href: route('apps.users.index')
                 }
             ],
         }

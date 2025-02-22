@@ -1,4 +1,4 @@
-import { Users2, UserCog, UserRoundCheck } from "lucide-react";
+import { Users2, UserCog, UserRoundCheck, Users } from "lucide-react";
 import {
     SidebarGroup,
     SidebarGroupContent,
@@ -34,6 +34,16 @@ export function SideUserManagement({ url, setOpenMobile } : { url: string, setOp
                                 <Link href={route('apps.roles.index')} onClick={() => setOpenMobile(false)}>
                                     <UserCog/>
                                     <span>Akses Group</span>
+                                </Link>
+                            </SidebarMenuButton>
+                        </SidebarMenuItem>
+                    }
+                    {hasAnyPermission(['users-data']) &&
+                        <SidebarMenuItem>
+                            <SidebarMenuButton asChild tooltip={"Pengguna"} isActive={url.startsWith('/apps/users') && true}>
+                                <Link href={route('apps.users.index')} onClick={() => setOpenMobile(false)}>
+                                    <Users/>
+                                    <span>Pengguna</span>
                                 </Link>
                             </SidebarMenuButton>
                         </SidebarMenuItem>

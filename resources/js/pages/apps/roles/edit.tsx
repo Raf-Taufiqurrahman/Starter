@@ -66,13 +66,13 @@ export default function Edit() {
 
     return (
         <>
-            <Head title='Tambah Akses Group'/>
-            <Header title='Tambah Akses Group' subtitle='Halaman ini digunakan untuk menambahkan data akses group'/>
+            <Head title='Ubah Akses Group'/>
+            <Header title='Ubah Akses Group' subtitle='Halaman ini digunakan untuk mengubah data akses group'/>
             <div className='p-6'>
                <Card>
                     <CardHeader>
-                        <CardTitle>Tambah Akses Group</CardTitle>
-                        <CardDescription>Form ini digunakan untuk menambahkan data akses group</CardDescription>
+                        <CardTitle>Ubah Akses Group</CardTitle>
+                        <CardDescription>Form ini digunakan untuk mengubah data akses group</CardDescription>
                     </CardHeader>
                     <CardContent>
                         <form onSubmit={storeData}>

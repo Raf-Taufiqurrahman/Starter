@@ -67,7 +67,9 @@ export default function Index() {
     }
 
     const storeData = async(e: React.FormEvent<HTMLFormElement>) => {
-           if(data.isUpdate)
+        e.preventDefault();
+
+        if(data.isUpdate)
             post(route('apps.permissions.update', data.id), {
                 onSuccess: () => {
                     toast({
@@ -162,13 +164,15 @@ export default function Index() {
                                             {++index + (permissions.current_page - 1) * permissions.per_page}
                                         </TableCell>
                                         <TableCell>{permission.name}</TableCell>
-                                        <TableCell className='flex items-center justify-center'>
-                                            <ActionButton
-                                                permissionPrefix='permissions'
-                                                isModal={true}
-                                                actionEdit={() => handleModalUpdate(permission)}
-                                                actionDelete={() => handleModalDelete(permission)}
-                                            />
+                                        <TableCell>
+                                            {(hasAnyPermission(['permissions-update']) || hasAnyPermission(['permissions-delete'])) &&
+                                                <ActionButton
+                                                    permissionPrefix='permissions'
+                                                    isModal={true}
+                                                    actionEdit={() => handleModalUpdate(permission)}
+                                                    actionDelete={() => handleModalDelete(permission)}
+                                                />
+                                            }
                                         </TableCell>
                                     </TableRow>
                                 ))

@@ -7,6 +7,7 @@ export interface User {
     email: string;
     email_verified_at?: string;
     avatar?: string;
+    is_active: boolean;
     roles: Role[];
 }
 

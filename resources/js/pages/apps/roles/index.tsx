@@ -46,7 +46,7 @@ export default function Index() {
         <>
             <Head title='Akses Group'/>
             <Header title='Akses Group' subtitle='Halaman ini digunakan untuk mengelola data hak akses group pengguna'>
-               {hasAnyPermission(['roles.create']) &&
+               {hasAnyPermission(['roles-create']) &&
                     <Button asChild variant='outline'>
                         <Link href={route('apps.roles.create')}>
                             <PlusCircle className="size-4"/> <span className="hidden sm:inline-flex">Tambah Akses Group</span>
@@ -95,12 +95,14 @@ export default function Index() {
                                                 </div>
                                             }
                                         </TableCell>
-                                        <TableCell className='flex items-center justify-center'>
-                                            <ActionButton
-                                                permissionPrefix='roles'
-                                                actionEditHref={route('apps.roles.edit', role.id)}
-                                                actionDelete={() => handleModalDelete(role)}
-                                            />
+                                        <TableCell>
+                                            {(hasAnyPermission(['roles-update']) || hasAnyPermission(['roles-delete']) &&
+                                                <ActionButton
+                                                    permissionPrefix='roles'
+                                                    actionEditHref={route('apps.roles.edit', role.id)}
+                                                    actionDelete={() => handleModalDelete(role)}
+                                                />
+                                            )}
                                         </TableCell>
                                     </TableRow>
                                 ))

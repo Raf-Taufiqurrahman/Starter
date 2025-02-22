@@ -57,7 +57,7 @@ class PermissionController extends Controller implements HasMiddleware
         Permission::create(['name' => $request->name]);
 
         // render view
-        return back();
+        return to_route('apps.permissions.index');
     }
 
     /**
@@ -69,7 +69,7 @@ class PermissionController extends Controller implements HasMiddleware
         $permission->update(['name' => $request->name]);
 
         // render view
-        return back();
+        return to_route('apps.permissions.index');
     }
 
     /**
@@ -81,6 +81,6 @@ class PermissionController extends Controller implements HasMiddleware
         $permission->delete();
 
         // render view
-        return back();
+        return to_route('apps.permissions.index');
     }
 }

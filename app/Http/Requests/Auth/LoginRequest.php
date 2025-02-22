@@ -58,6 +58,16 @@ public function authenticate(): void
         ]);
     }
 
+    // inactive user
+    $user = Auth::user();
+    if (!$user->is_active) {
+        RateLimiter::hit($this->throttleKey());
+
+        throw ValidationException::withMessages([
+            'login' => trans('auth.inactive'),
+        ]);
+    }
+
     RateLimiter::clear($this->throttleKey());
 }
 
